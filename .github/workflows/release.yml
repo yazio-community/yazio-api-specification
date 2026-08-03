@@ -91,6 +91,48 @@ jobs:
           files: dist/openapi.yaml
           generate_release_notes: true
 
+      # Handed to the `pages` job below, which runs as a separate runner and
+      # so cannot see this job's dist/. Kept minimal (bundle only) because it
+      # is only ever consumed by build-docs, not published itself.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bundle
+          path: dist/openapi.yaml
+          retention-days: 1
+
+  pages:
+    # Docs are built from the same stamped, linted bundle as the release
+    # asset, so the published site always matches a real tag — never a
+    # half-edited main. If this job fails, the release has already gone out;
+    # re-run just this job rather than re-tagging.
+    #
+    # openapi.yaml is published alongside index.html in the same directory,
+    # so a consumer can reference it directly off the Pages URL instead of
+    # the release-asset URL — a stable, un-versioned "latest" location.
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: bundle
+          path: dist
+
+      - name: Render static docs with Redoc
+        run: npx --yes @redocly/cli@latest build-docs dist/openapi.yaml -o dist/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
+
   dispatch:
     # Each SDK repo regenerates itself from the release we just published.
     # Adding a language means adding a line here and a regenerate workflow over

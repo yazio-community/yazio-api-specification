@@ -38,6 +38,13 @@ curl -sSLO https://github.com/yazio-community/yazio-api-specification/releases/l
 Pin a tag rather than tracking `main`. `main` is a working branch — a spec edit
 lands there long before anyone has checked that a generator still accepts it.
 
+Browsable docs for the latest release, rendered with Redoc, are published at
+<https://yazio-community.github.io/yazio-api-specification/>. Rebuilt on every
+tag alongside the release asset, from the same stamped bundle. The bundle
+itself is served next to the docs, at
+<https://yazio-community.github.io/yazio-api-specification/openapi.yaml> — a
+stable, un-versioned URL, unlike the per-tag release asset above.
+
 Versions are plain semver, judged by what a change does to generated code:
 patch leaves it identical, minor adds surface, major breaks callers. The YAZIO
 API version is _not_ in that number — it is `22`, it is in `info.x-api-version`

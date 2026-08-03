@@ -1,7 +1,8 @@
 get:
   tags:
-    - Buddies
-  summary: GET buddies
+  - Buddies
+  operationId: listBuddies
+  summary: List the user's buddies
   responses:
     '200':
       description: ''

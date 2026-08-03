@@ -1,7 +1,8 @@
 get:
   tags:
-    - Products
-  summary: GET search
+  - Products
+  operationId: searchProducts
+  summary: Search products by text or barcode
   description: >-
     Free-text or barcode search. Results are ranked by the request's
     `Accept-Language`, so the same query answers differently for a German and an
@@ -18,25 +19,25 @@ get:
   parameters:
     # Inferred as a number because the only search in the capture was for a
     # barcode. The endpoint takes free text just as well, so this is a string.
-    - name: query
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: query
+    in: query
+    required: true
+    schema:
+      type: string
     # `sex` and `countries` are mandatory despite being inferred as optional:
     # omitting either answers 400 "This value should not be blank".
-    - name: sex
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: countries
-      in: query
-      required: true
-      schema:
-        type: string
-    - name: locales
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: sex
+    in: query
+    required: true
+    schema:
+      type: string
+  - name: countries
+    in: query
+    required: true
+    schema:
+      type: string
+  - name: locales
+    in: query
+    required: false
+    schema:
+      type: string

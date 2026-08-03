@@ -1,7 +1,8 @@
 get:
   tags:
-    - Products
-  summary: GET products by id
+  - Products
+  operationId: getProduct
+  summary: A product and its nutrients
   responses:
     '200':
       description: ''
@@ -10,22 +11,23 @@ get:
           schema:
             $ref: ../../../components/schemas/Product.yaml
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
 options:
   tags:
-    - Products
-  summary: OPTIONS products by id
+  - Products
+  operationId: getProductOptions
+  summary: Allowed methods for a product resource
   responses:
     '200':
       description: OK
       content: {}
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

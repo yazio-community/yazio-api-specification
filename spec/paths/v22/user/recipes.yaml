@@ -1,7 +1,8 @@
 post:
   tags:
-    - Recipes
-  summary: POST recipes
+  - Recipes
+  operationId: createUserRecipe
+  summary: Create a recipe
   responses:
     '200':
       description: OK
@@ -13,8 +14,9 @@ post:
           $ref: ../../../components/schemas/RecipeDraft.yaml
 get:
   tags:
-    - Recipes
-  summary: GET recipes
+  - Recipes
+  operationId: listUserRecipes
+  summary: Recipes the user created
   responses:
     '200':
       description: ''

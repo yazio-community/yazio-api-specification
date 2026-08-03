@@ -1,17 +1,18 @@
 post:
   tags:
-    - Streaks
-  summary: POST streak by date
+  - Streaks
+  operationId: updateStreak
+  summary: Record streak activity for a date
   responses:
     '200':
       description: OK
       content: {}
   parameters:
-    - name: date
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: date
+    in: path
+    required: true
+    schema:
+      type: string
   requestBody:
     content:
       application/json:

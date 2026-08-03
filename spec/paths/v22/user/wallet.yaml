@@ -1,7 +1,8 @@
 get:
   tags:
-    - Rewards & Shop
-  summary: GET wallet
+  - Rewards & Shop
+  operationId: getWallet
+  summary: The user's credit balance
   responses:
     '200':
       description: ''

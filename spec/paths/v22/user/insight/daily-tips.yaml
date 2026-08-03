@@ -1,7 +1,8 @@
 post:
   tags:
-    - Insights
-  summary: POST daily-tips
+  - Insights
+  operationId: requestDailyTips
+  summary: Daily coaching tips
   responses:
     '200':
       description: OK

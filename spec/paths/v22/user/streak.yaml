@@ -1,7 +1,8 @@
 get:
   tags:
-    - Streaks
-  summary: GET streak
+  - Streaks
+  operationId: getStreak
+  summary: The user's current logging streak
   responses:
     '200':
       description: ''

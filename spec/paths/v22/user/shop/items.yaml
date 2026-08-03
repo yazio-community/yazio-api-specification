@@ -1,7 +1,8 @@
 get:
   tags:
-    - Rewards & Shop
-  summary: GET items
+  - Rewards & Shop
+  operationId: listShopItems
+  summary: Items purchasable with wallet credit
   responses:
     '200':
       description: ''

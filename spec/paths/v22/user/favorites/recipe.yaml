@@ -1,7 +1,8 @@
 get:
   tags:
-    - Recipes
-  summary: GET recipe
+  - Recipes
+  operationId: listFavoriteRecipes
+  summary: Recipes the user favourited
   responses:
     '200':
       description: ''

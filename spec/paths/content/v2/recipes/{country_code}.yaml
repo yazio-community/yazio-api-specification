@@ -1,7 +1,8 @@
 get:
   tags:
-    - Content
-  summary: GET recipes by country_code
+  - Content
+  operationId: listFeaturedRecipes
+  summary: Editorial recipe collections for a country
   responses:
     '200':
       description: ''
@@ -12,8 +13,8 @@ get:
             items:
               $ref: ../../../../components/schemas/RecipeIndexEntry.yaml
   parameters:
-    - name: country_code
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: country_code
+    in: path
+    required: true
+    schema:
+      type: string

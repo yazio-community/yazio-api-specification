@@ -1,7 +1,8 @@
 post:
   tags:
-    - Insights
-  summary: POST meal-summary-tips
+  - Insights
+  operationId: requestMealSummaryTips
+  summary: Coaching tips about a logged meal
   responses:
     '200':
       description: OK

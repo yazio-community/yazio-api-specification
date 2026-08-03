@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET settings
+  - User
+  operationId: getSettings
+  summary: The user's app settings
   responses:
     '200':
       description: ''

@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET third-party-integration
+  - User
+  operationId: getThirdPartyIntegration
+  summary: Connected third-party services
   responses:
     '200':
       description: ''

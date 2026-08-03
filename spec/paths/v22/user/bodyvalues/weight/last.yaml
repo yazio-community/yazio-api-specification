@@ -1,7 +1,8 @@
 get:
   tags:
-    - Body Values
-  summary: GET last
+  - Body Values
+  operationId: getLatestWeight
+  summary: The most recent weight entry on or before a date
   responses:
     '200':
       description: ''
@@ -12,8 +13,8 @@ get:
   parameters:
     # Mandatory: a blank date answers 400. "last" means the latest entry on
     # or before this day.
-    - name: date
-      in: query
-      required: true
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: true
+    schema:
+      type: string

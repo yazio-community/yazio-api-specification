@@ -1,7 +1,8 @@
 get:
   tags:
-    - Diary
-  summary: GET feeling
+  - Diary
+  operationId: getFeeling
+  summary: The feeling logged for a day
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../components/schemas/Feeling.yaml
   parameters:
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string

@@ -1,17 +1,18 @@
 put:
   tags:
-    - Body Values
-  summary: PUT bodyvalues by id
+  - Body Values
+  operationId: updateBodyValue
+  summary: Replace a body value
   responses:
     '200':
       description: OK
       content: {}
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
   requestBody:
     content:
       application/json:

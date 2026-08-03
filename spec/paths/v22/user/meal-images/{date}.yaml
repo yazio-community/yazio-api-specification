@@ -1,7 +1,8 @@
 get:
   tags:
-    - Diary
-  summary: GET meal-images by date
+  - Diary
+  operationId: listMealImages
+  summary: Meal photos for a day
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../../components/schemas/MealImages.yaml
   parameters:
-    - name: date
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: date
+    in: path
+    required: true
+    schema:
+      type: string

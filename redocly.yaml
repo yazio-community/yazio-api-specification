@@ -26,20 +26,17 @@ rules:
   # a scope model we have not actually observed.
   security-defined: off
 
-  # No operationIds anywhere: the Python generator derives its function names
-  # from method + path instead, which is what the SDKs already ship. Adding
-  # them now would rename every generated function.
-  operation-operationId: off
-
   # Only the responses the app actually provoked are described. Inventing 4xx
   # entries would document shapes nobody has seen.
   operation-4xx-response: off
 
-  # Summaries are still the generated ones ("GET user"). Now that the tree is
-  # hand-maintained there is nothing stopping better ones being written, and
-  # turning this to `error` is the way to force that — it is off only because
-  # ~60 operations would fail at once today.
-  operation-summary: off
+  # Every operation carries a hand-written operationId and summary, and both are
+  # load-bearing for consumers: generators name the client function after the
+  # operationId, so adding, removing or renaming one renames a public symbol in
+  # every SDK. Treat an operationId as part of the API surface.
+  operation-operationId: error
+  operation-operationId-unique: error
+  operation-summary: error
   tag-description: error
 
   # Structural checks — these are the point of running the linter at all.

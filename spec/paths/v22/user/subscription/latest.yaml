@@ -1,7 +1,8 @@
 get:
   tags:
-    - Subscriptions
-  summary: GET latest
+  - Subscriptions
+  operationId: getLatestSubscription
+  summary: The most recent subscription record
   responses:
     '200':
       description: ''

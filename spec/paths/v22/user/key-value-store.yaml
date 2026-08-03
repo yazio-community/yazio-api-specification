@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET key-value-store
+  - User
+  operationId: getKeyValueStore
+  summary: Arbitrary client-stored settings
   responses:
     '200':
       description: ''

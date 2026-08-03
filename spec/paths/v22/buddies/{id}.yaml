@@ -1,7 +1,8 @@
 get:
   tags:
-    - Buddies
-  summary: GET buddies by id
+  - Buddies
+  operationId: getBuddy
+  summary: A buddy's profile and recent activity
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../components/schemas/Buddy.yaml
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

@@ -1,7 +1,8 @@
 post:
   tags:
-    - Body Values
-  summary: POST bodyvalues
+  - Body Values
+  operationId: createBodyValue
+  summary: Record a body value
   responses:
     '200':
       description: OK
@@ -13,8 +14,9 @@ post:
           $ref: ../../../components/schemas/BodyValueEntry.yaml
 delete:
   tags:
-    - Body Values
-  summary: DELETE bodyvalues
+  - Body Values
+  operationId: deleteBodyValue
+  summary: Delete a body value
   responses:
     '200':
       description: OK

@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET changes-indicator
+  - User
+  operationId: getChangesIndicator
+  summary: Timestamps telling a client what to re-fetch
   responses:
     '200':
       description: ''

@@ -1,7 +1,8 @@
 get:
   tags:
-    - Rewards & Shop
-  summary: GET claimables
+  - Rewards & Shop
+  operationId: listClaimables
+  summary: Rewards waiting to be claimed
   responses:
     '200':
       description: ''

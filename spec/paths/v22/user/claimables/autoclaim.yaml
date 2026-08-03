@@ -1,7 +1,8 @@
 post:
   tags:
-    - Rewards & Shop
-  summary: POST autoclaim
+  - Rewards & Shop
+  operationId: autoclaimRewards
+  summary: Claim every outstanding reward
   responses:
     '200':
       description: OK

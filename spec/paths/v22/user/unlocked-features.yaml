@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET unlocked-features
+  - User
+  operationId: getUnlockedFeatures
+  summary: Features the account has
   responses:
     '200':
       description: ''

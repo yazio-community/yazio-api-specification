@@ -1,7 +1,8 @@
 get:
   tags:
-    - Products
-  summary: GET suggested
+  - Products
+  operationId: listSuggestedProducts
+  summary: Products suggested for a meal slot
   responses:
     '200':
       description: ''
@@ -12,13 +13,13 @@ get:
             items:
               $ref: ../../../../components/schemas/SuggestedProduct.yaml
   parameters:
-    - name: daytime
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: daytime
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string

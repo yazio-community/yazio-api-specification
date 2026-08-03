@@ -1,7 +1,8 @@
 get:
   tags:
-    - Diary
-  summary: GET water-intake
+  - Diary
+  operationId: getWaterIntake
+  summary: Water logged for a day
   responses:
     '200':
       description: ''
@@ -10,15 +11,16 @@ get:
           schema:
             $ref: ../../../components/schemas/WaterIntake.yaml
   parameters:
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string
 post:
   tags:
-    - Diary
-  summary: POST water-intake
+  - Diary
+  operationId: setWaterIntake
+  summary: Set the water logged for a day
   responses:
     '200':
       description: OK

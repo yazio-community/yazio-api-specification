@@ -1,7 +1,8 @@
 get:
   tags:
-    - Widgets
-  summary: GET daily-summary
+  - Widgets
+  operationId: getDailySummaryWidget
+  summary: The home screen daily summary
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../../components/schemas/DailySummaryWidget.yaml
   parameters:
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string

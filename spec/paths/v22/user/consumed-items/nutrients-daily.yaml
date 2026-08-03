@@ -1,7 +1,8 @@
 get:
   tags:
-    - Diary
-  summary: GET nutrients-daily
+  - Diary
+  operationId: getDailyNutrients
+  summary: Nutrient totals per day
   responses:
     '200':
       description: ''
@@ -12,13 +13,13 @@ get:
             items:
               $ref: ../../../../components/schemas/DailyNutrients.yaml
   parameters:
-    - name: end
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: start
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: end
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: start
+    in: query
+    required: false
+    schema:
+      type: string

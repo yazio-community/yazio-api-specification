@@ -1,7 +1,8 @@
 get:
   tags:
-    - Fasting
-  summary: GET fasting-countdowns
+  - Fasting
+  operationId: getFastingCountdowns
+  summary: The user's active fasting countdowns
   responses:
     '200':
       description: OK

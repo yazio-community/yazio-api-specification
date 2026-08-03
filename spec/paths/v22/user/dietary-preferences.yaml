@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET dietary-preferences
+  - User
+  operationId: getDietaryPreferences
+  summary: Diet and food preferences
   responses:
     '200':
       description: ''

@@ -2,15 +2,16 @@
 # with this ID does not exist" for an unknown id and 405 on /v22/recipes/{id}.
 delete:
   tags:
-    - Recipes
-  summary: DELETE recipes by id
+  - Recipes
+  operationId: deleteUserRecipe
+  summary: Delete one of the user's recipes
   responses:
     '204':
       description: Removed
       content: {}
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

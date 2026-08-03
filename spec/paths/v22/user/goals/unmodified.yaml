@@ -1,7 +1,8 @@
 get:
   tags:
-    - Goals
-  summary: GET unmodified
+  - Goals
+  operationId: getUnmodifiedGoals
+  summary: Daily goals as calculated, before any manual override
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../../components/schemas/DailyGoals.yaml
   parameters:
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string

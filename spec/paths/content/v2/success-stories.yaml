@@ -1,7 +1,8 @@
 get:
   tags:
-    - Content
-  summary: GET success-stories
+  - Content
+  operationId: listSuccessStories
+  summary: Editorial success stories
   responses:
     '200':
       description: ''
@@ -11,18 +12,18 @@ get:
             type: array
             items: {}
   parameters:
-    - name: locale
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: sex
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: goal
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: locale
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: sex
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: goal
+    in: query
+    required: false
+    schema:
+      type: string

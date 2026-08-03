@@ -1,7 +1,8 @@
 get:
   tags:
-    - Diary
-  summary: GET consumed-items
+  - Diary
+  operationId: listConsumedItems
+  summary: Everything logged for a day
   responses:
     '200':
       description: ''
@@ -10,15 +11,16 @@ get:
           schema:
             $ref: ../../../components/schemas/ConsumedItems.yaml
   parameters:
-    - name: date
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: date
+    in: query
+    required: false
+    schema:
+      type: string
 post:
   tags:
-    - Diary
-  summary: POST consumed-items
+  - Diary
+  operationId: addConsumedItems
+  summary: Log products, recipe portions or simple entries
   responses:
     '204':
       description: Written
@@ -31,8 +33,9 @@ post:
 # Never captured; confirmed against the live API.
 delete:
   tags:
-    - Diary
-  summary: DELETE consumed-items
+  - Diary
+  operationId: deleteConsumedItem
+  summary: Remove one logged entry
   responses:
     '204':
       description: Removed

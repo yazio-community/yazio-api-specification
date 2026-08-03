@@ -1,7 +1,8 @@
 get:
   tags:
-    - Subscriptions
-  summary: GET subscription
+  - Subscriptions
+  operationId: getSubscription
+  summary: The user's subscription state
   responses:
     '200':
       description: ''

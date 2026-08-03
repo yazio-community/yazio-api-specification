@@ -1,7 +1,8 @@
 post:
   tags:
-    - User
-  summary: POST initialize
+  - User
+  operationId: initializeCrm
+  summary: Register the client with the CRM
   responses:
     '200':
       description: OK

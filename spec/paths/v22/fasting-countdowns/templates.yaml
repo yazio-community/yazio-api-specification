@@ -1,7 +1,8 @@
 get:
   tags:
-    - Fasting
-  summary: GET templates
+  - Fasting
+  operationId: listFastingTemplates
+  summary: Available fasting plans
   responses:
     '200':
       description: ''
@@ -12,13 +13,13 @@ get:
             items:
               $ref: ../../../components/schemas/FastingTemplateCategory.yaml
   parameters:
-    - name: energyunit
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: locale
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: energyunit
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: locale
+    in: query
+    required: false
+    schema:
+      type: string

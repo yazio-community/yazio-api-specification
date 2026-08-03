@@ -1,7 +1,8 @@
 get:
   tags:
-    - User
-  summary: GET user
+  - User
+  operationId: getUser
+  summary: The authenticated user's profile
   responses:
     '200':
       description: ''

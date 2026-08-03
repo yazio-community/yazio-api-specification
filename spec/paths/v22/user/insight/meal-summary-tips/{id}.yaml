@@ -1,7 +1,8 @@
 get:
   tags:
-    - Insights
-  summary: GET meal-summary-tips by id
+  - Insights
+  operationId: getMealSummaryTip
+  summary: One meal summary tip by id
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../../../components/schemas/MealSummaryTips.yaml
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

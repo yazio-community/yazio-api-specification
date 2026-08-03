@@ -1,7 +1,8 @@
 get:
   tags:
-    - Activity
-  summary: GET summary-daily
+  - Activity
+  operationId: getDailyExerciseSummary
+  summary: Daily totals of logged exercise
   responses:
     '200':
       description: ''
@@ -12,13 +13,13 @@ get:
             items:
               $ref: ../../../../components/schemas/DailyExerciseSummary.yaml
   parameters:
-    - name: start
-      in: query
-      required: false
-      schema:
-        type: string
-    - name: end
-      in: query
-      required: false
-      schema:
-        type: string
+  - name: start
+    in: query
+    required: false
+    schema:
+      type: string
+  - name: end
+    in: query
+    required: false
+    schema:
+      type: string

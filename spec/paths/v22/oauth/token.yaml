@@ -1,7 +1,8 @@
 post:
   tags:
-    - Authentication
-  summary: POST token
+  - Authentication
+  operationId: createToken
+  summary: Exchange credentials or a refresh token for a bearer token
   responses:
     '200':
       description: ''

@@ -1,7 +1,8 @@
 get:
   tags:
-    - Fasting
-  summary: GET history
+  - Fasting
+  operationId: getFastingHistory
+  summary: Completed fasting periods
   responses:
     '200':
       description: ''

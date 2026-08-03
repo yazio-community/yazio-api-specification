@@ -1,7 +1,8 @@
 get:
   tags:
-    - Recipes
-  summary: GET recipes by id
+  - Recipes
+  operationId: getRecipe
+  summary: A public recipe
   responses:
     '200':
       description: ''
@@ -10,8 +11,8 @@ get:
           schema:
             $ref: ../../../components/schemas/Recipe.yaml
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

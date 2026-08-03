@@ -1,7 +1,8 @@
 post:
   tags:
-    - User
-  summary: POST flush
+  - User
+  operationId: flushPendingNotifications
+  summary: Deliver and clear queued notifications
   responses:
     '200':
       description: ''

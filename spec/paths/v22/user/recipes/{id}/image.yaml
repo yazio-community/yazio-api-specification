@@ -1,0 +1,15 @@
+delete:
+  tags:
+  - Recipes
+  operationId: deleteUserRecipeImage
+  summary: Remove a recipe's photo
+  responses:
+    '204':
+      description: Removed
+      content: {}
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

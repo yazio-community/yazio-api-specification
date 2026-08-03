@@ -133,6 +133,10 @@ paths:
     $ref: paths/v22/user/recipes.yaml
   /v22/user/recipes/{id}:
     $ref: paths/v22/user/recipes/{id}.yaml
+  /v22/user/recipes/{id}/image:
+    $ref: paths/v22/user/recipes/{id}/image.yaml
+  /v22/user/recipes/{id}/image/{filename}:
+    $ref: paths/v22/user/recipes/{id}/image/{filename}.yaml
   /v22/recipes/{id}:
     $ref: paths/v22/recipes/{id}.yaml
   /v22/products/search:

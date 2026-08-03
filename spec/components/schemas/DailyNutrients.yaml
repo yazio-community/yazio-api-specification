@@ -1,0 +1,14 @@
+type: object
+properties:
+  date:
+    type: string
+  energy:
+    type: number
+  carb:
+    type: number
+  protein:
+    type: number
+  fat:
+    type: number
+  energy_goal:
+    type: number

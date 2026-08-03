@@ -1,0 +1,11 @@
+get:
+  tags:
+    - Rewards & Shop
+  summary: GET claimables
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/Claimables.yaml

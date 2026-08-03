@@ -1,0 +1,6 @@
+type: object
+properties:
+  energy_goal:
+    type: number
+  nutrients:
+    $ref: ./NutrientSummary.yaml

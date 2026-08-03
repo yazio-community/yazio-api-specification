@@ -1,0 +1,13 @@
+post:
+  tags:
+    - Insights
+  summary: POST daily-tips
+  responses:
+    '200':
+      description: OK
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/DailyTipsRequest.yaml

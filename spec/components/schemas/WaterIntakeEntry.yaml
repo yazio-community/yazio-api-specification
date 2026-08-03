@@ -1,0 +1,6 @@
+type: object
+properties:
+  date:
+    type: string
+  water_intake:
+    type: number

@@ -1,0 +1,12 @@
+get:
+  tags:
+    - Recipes
+  summary: GET recipe
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {}

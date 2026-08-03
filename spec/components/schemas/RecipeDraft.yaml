@@ -1,0 +1,65 @@
+type: object
+properties:
+  nutrients:
+    type: object
+    properties:
+      nutrient.salt:
+        type: number
+      nutrient.monounsaturated:
+        type: number
+      nutrient.sugar:
+        type: number
+      mineral.calcium:
+        type: number
+      nutrient.saturated:
+        type: number
+      vitamin.b6:
+        type: number
+      nutrient.protein:
+        type: number
+      nutrient.dietaryfiber:
+        type: number
+      energy.energy:
+        type: number
+      nutrient.polyunsaturated:
+        type: number
+      nutrient.fat:
+        type: number
+      nutrient.carb:
+        type: number
+  # Must be a whole number. A fractional value — 2.5, and also 2.0, which
+  # serialises with a decimal point — is answered with a 500 rather than a
+  # validation error.
+  portion_count:
+    type: integer
+  # A one-ingredient recipe is rejected with "This collection should
+  # contain 2 elements or more". The full nutrient map is accepted here,
+  # not only the twelve keys the captured app happened to send.
+  servings:
+    type: array
+    minItems: 2
+    items:
+      type: object
+      properties:
+        amount:
+          type: number
+        serving:
+          type: string
+        producer:
+          type: string
+        name:
+          type: string
+        serving_quantity:
+          type: number
+        base_unit:
+          type: string
+        product_id:
+          type: string
+  instructions:
+    type: array
+    items:
+      type: string
+  name:
+    type: string
+  id:
+    type: string

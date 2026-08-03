@@ -1,0 +1,10 @@
+type: object
+properties:
+  energy.energy:
+    type: number
+  nutrient.carb:
+    type: number
+  nutrient.fat:
+    type: number
+  nutrient.protein:
+    type: number

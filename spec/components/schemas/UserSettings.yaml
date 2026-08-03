@@ -1,0 +1,22 @@
+type: object
+properties:
+  has_water_tracker:
+    type: boolean
+  has_diary_tipps:
+    type: boolean
+  has_meal_reminders:
+    type: boolean
+  has_usage_reminders:
+    type: boolean
+  has_weight_reminders:
+    type: boolean
+  has_water_reminders:
+    type: boolean
+  consume_activity_calories:
+    type: boolean
+  has_feelings:
+    type: boolean
+  has_fasting_tracker_reminders:
+    type: boolean
+  has_fasting_stage_reminders:
+    type: boolean

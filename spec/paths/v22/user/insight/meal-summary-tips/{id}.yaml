@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Insights
+  summary: GET meal-summary-tips by id
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../../components/schemas/MealSummaryTips.yaml
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string

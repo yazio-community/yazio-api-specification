@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Buddies
+  summary: GET buddies by id
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/Buddy.yaml
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string

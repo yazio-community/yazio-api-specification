@@ -1,0 +1,141 @@
+type: object
+properties:
+  id:
+    type: string
+  yazio_id:
+    type: object
+    nullable: true
+  locale:
+    type: string
+  name:
+    type: string
+  portion_count:
+    type: number
+  nutrients:
+    type: object
+    properties:
+      energy.energy:
+        type: number
+      mineral.arsenic:
+        type: number
+      mineral.boron:
+        type: number
+      mineral.calcium:
+        type: number
+      mineral.chlorine:
+        type: number
+      mineral.chrome:
+        type: number
+      mineral.copper:
+        type: number
+      mineral.fluoride:
+        type: number
+      mineral.fluorine:
+        type: number
+      mineral.iodine:
+        type: number
+      mineral.iron:
+        type: number
+      mineral.magnesium:
+        type: number
+      mineral.manganese:
+        type: number
+      mineral.phosphorus:
+        type: number
+      mineral.potassium:
+        type: number
+      mineral.selenium:
+        type: number
+      mineral.sulfur:
+        type: number
+      mineral.zinc:
+        type: number
+      nutrient.alcohol:
+        type: number
+      nutrient.carb:
+        type: number
+      nutrient.cholesterol:
+        type: number
+      nutrient.dietaryfiber:
+        type: number
+      nutrient.fat:
+        type: number
+      nutrient.monounsaturated:
+        type: number
+      nutrient.polyunsaturated:
+        type: number
+      nutrient.protein:
+        type: number
+      nutrient.salt:
+        type: number
+      nutrient.saturated:
+        type: number
+      nutrient.sodium:
+        type: number
+      nutrient.sugar:
+        type: number
+      nutrient.water:
+        type: number
+      vitamin.a:
+        type: number
+      vitamin.b1:
+        type: number
+      vitamin.b11:
+        type: number
+      vitamin.b12:
+        type: number
+      vitamin.b2:
+        type: number
+      vitamin.b3:
+        type: number
+      vitamin.b5:
+        type: number
+      vitamin.b6:
+        type: number
+      vitamin.b7:
+        type: number
+      vitamin.c:
+        type: number
+      vitamin.d:
+        type: number
+      vitamin.e:
+        type: number
+      vitamin.k:
+        type: number
+  image:
+    type: object
+    nullable: true
+  servings:
+    type: array
+    items:
+      type: object
+      properties:
+        producer:
+          type: string
+        name:
+          type: string
+        amount:
+          type: number
+        serving:
+          type: object
+          nullable: true
+        serving_quantity:
+          type: object
+          nullable: true
+        base_unit:
+          type: string
+        note:
+          type: object
+          nullable: true
+        product_id:
+          type: string
+  instructions:
+    type: array
+    items: {}
+  is_yazio_recipe:
+    type: boolean
+  available_since:
+    type: object
+    nullable: true
+  is_pro_recipe:
+    type: boolean

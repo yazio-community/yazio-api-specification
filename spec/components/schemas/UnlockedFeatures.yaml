@@ -1,0 +1,13 @@
+type: object
+properties:
+  unlocked_features:
+    type: array
+    items:
+      type: object
+      properties:
+        feature:
+          type: string
+        origin:
+          type: string
+        expire_date_time_utc:
+          type: string

@@ -1,0 +1,10 @@
+type: object
+properties:
+  daytimes:
+    type: array
+    items:
+      type: string
+  streak_count:
+    type: number
+  freeze_count:
+    type: number

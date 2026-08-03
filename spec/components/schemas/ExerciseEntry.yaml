@@ -1,0 +1,17 @@
+type: object
+properties:
+  activity:
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+        energy:
+          type: number
+        steps:
+          type: number
+        distance:
+          type: number
+        gateway:
+          type: string

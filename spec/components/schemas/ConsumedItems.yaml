@@ -1,0 +1,38 @@
+type: object
+properties:
+  products:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+        serving:
+          type: string
+          nullable: true
+        amount:
+          type: number
+        daytime:
+          type: string
+        # A full local timestamp, "2026-08-02 16:02:48" — not a plain
+        # date, even though the `date` query parameter that reads a day
+        # back out is one.
+        date:
+          type: string
+        # Present on read, omitted on write.
+        type:
+          type: string
+        product_id:
+          type: string
+        serving_quantity:
+          type: number
+          nullable: true
+  # Filled in from a live response; the capture never held a recipe
+  # portion, so mitmproxy2swagger inferred an empty item schema.
+  recipe_portions:
+    type: array
+    items:
+      $ref: ./ConsumedRecipePortion.yaml
+  simple_products:
+    type: array
+    items: {}

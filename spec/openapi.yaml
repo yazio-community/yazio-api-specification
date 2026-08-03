@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  title: YAZIO API
+  version: 0.0.0-dev
+  # Literal block, not folded. `redocly split` reflowed this into `>` style and
+  # broke sentences across blank lines, which Swagger UI renders as paragraph
+  # breaks mid-sentence. `|-` keeps the line breaks as written.
+  description: |-
+    An unofficial description of the private API behind the YAZIO food-diary app,
+    covering version 22 of the API at https://yzapi.yazio.com.
+
+    Not published, endorsed or supported by YAZIO. The API is private and can
+    change without notice; using it is subject to YAZIO's terms of service.
+
+    This description is *inferred from captured traffic*, not written from
+    documentation. An endpoint the app never called while it was being recorded
+    does not appear here, and a field that happened to be null throughout is
+    typed from that null. Treat it as a field guide rather than a contract.
+
+    ## Calling it
+
+    The API refuses any request whose client version it does not recognise,
+    answering `403 {"error":"version_blocked"}` on every endpoint except the
+    token exchange. The version is carried in the User-Agent rather than in a
+    header of its own, so every request needs one the API accepts. The string
+    the captured app sent is:
+
+    ```
+    YAZIO/26.30.1 (com.yazio.ios.YAZIO; build:2607271240; iOS 27.0.0) Ktor
+    ```
+
+    It will need bumping whenever YAZIO retires that app version; a sudden wall
+    of 403s from everywhere but `/v22/oauth/token` is the symptom.
+
+    `Accept-Language` is not decorative either: product search is ranked by it,
+    so it decides whether a German user searching "Quark" gets German results.
+
+    Source and issues: https://github.com/yazio-community/yazio-api-specification
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  # The YAZIO API version this document describes — the `22` in every /v22/
+  # path. Deliberately not part of `version`, which is this document's own
+  # semver and is what dependency solvers read in the generated SDKs. A move to
+  # /v23 is a new document, not a major bump here.
+  x-api-version: 22
+servers:
+  - url: https://yzapi.yazio.com
+    description: The default server
+tags:
+  - name: Authentication
+    description: OAuth token issuance and refresh.
+  - name: User
+    description: Account profile, settings, preferences and account-level state.
+  - name: Goals
+    description: Daily nutrition, activity and body goals.
+  - name: Diary
+    description: Daily log of consumed items, water intake, feelings and meal images.
+  - name: Body Values
+    description: Weight and other tracked body measurements.
+  - name: Activity
+    description: Exercises, steps and activity energy.
+  - name: Products
+    description: Food product lookup and suggestions.
+  - name: Recipes
+    description: User-created and YAZIO recipes, plus recipe favorites.
+  - name: Fasting
+    description: Fasting countdown templates, active countdowns and history.
+  - name: Buddies
+    description: Buddy list and shared buddy progress.
+  - name: Streaks
+    description: Tracking streaks and streak recovery.
+  - name: Rewards & Shop
+    description: Wallet currencies, claimables and shop items.
+  - name: Subscriptions
+    description: Premium subscription state and history.
+  - name: Insights
+    description: AI-generated daily and meal-summary tips.
+  - name: Widgets
+    description: Aggregated summaries for home-screen widgets.
+  - name: Content
+    description: Editorial content such as recipe indexes and success stories.
+paths:
+  /v22/user/pending-notifications/flush:
+    $ref: paths/v22/user/pending-notifications/flush.yaml
+  /v22/user:
+    $ref: paths/v22/user.yaml
+  /v22/fasting-countdowns/templates:
+    $ref: paths/v22/fasting-countdowns/templates.yaml
+  /v22/user/fasting-countdowns/history:
+    $ref: paths/v22/user/fasting-countdowns/history.yaml
+  /v22/user/fasting-countdowns:
+    $ref: paths/v22/user/fasting-countdowns.yaml
+  /v22/user/changes-indicator:
+    $ref: paths/v22/user/changes-indicator.yaml
+  /v22/user/wallet:
+    $ref: paths/v22/user/wallet.yaml
+  /v22/user/claimables:
+    $ref: paths/v22/user/claimables.yaml
+  /v22/buddies:
+    $ref: paths/v22/buddies.yaml
+  /v22/user/exercises:
+    $ref: paths/v22/user/exercises.yaml
+  /v22/user/subscription/latest:
+    $ref: paths/v22/user/subscription/latest.yaml
+  /v22/buddies/{id}:
+    $ref: paths/v22/buddies/{id}.yaml
+  /v22/user/widgets/daily-summary:
+    $ref: paths/v22/user/widgets/daily-summary.yaml
+  /v22/user/consumed-items:
+    $ref: paths/v22/user/consumed-items.yaml
+  /v22/user/water-intake:
+    $ref: paths/v22/user/water-intake.yaml
+  /v22/user/feeling:
+    $ref: paths/v22/user/feeling.yaml
+  /v22/user/bodyvalues/weight/last:
+    $ref: paths/v22/user/bodyvalues/weight/last.yaml
+  /v22/user/meal-images/{date}:
+    $ref: paths/v22/user/meal-images/{date}.yaml
+  /v22/user/goals/unmodified:
+    $ref: paths/v22/user/goals/unmodified.yaml
+  /v22/user/goals:
+    $ref: paths/v22/user/goals.yaml
+  /v22/user/consumed-items/nutrients-daily:
+    $ref: paths/v22/user/consumed-items/nutrients-daily.yaml
+  /v22/user/exercises/summary-daily:
+    $ref: paths/v22/user/exercises/summary-daily.yaml
+  /v22/user/products/suggested:
+    $ref: paths/v22/user/products/suggested.yaml
+  /v22/products/{id}:
+    $ref: paths/v22/products/{id}.yaml
+  /v22/user/recipes:
+    $ref: paths/v22/user/recipes.yaml
+  /v22/user/recipes/{id}:
+    $ref: paths/v22/user/recipes/{id}.yaml
+  /v22/recipes/{id}:
+    $ref: paths/v22/recipes/{id}.yaml
+  /v22/products/search:
+    $ref: paths/v22/products/search.yaml
+  /v22/user/claimables/autoclaim:
+    $ref: paths/v22/user/claimables/autoclaim.yaml
+  /v22/user/streak/{date}:
+    $ref: paths/v22/user/streak/{date}.yaml
+  /v22/user/subscription:
+    $ref: paths/v22/user/subscription.yaml
+  /v22/user/insight/meal-summary-tips:
+    $ref: paths/v22/user/insight/meal-summary-tips.yaml
+  /v22/user/insight/meal-summary-tips/{id}:
+    $ref: paths/v22/user/insight/meal-summary-tips/{id}.yaml
+  /v22/user/bodyvalues:
+    $ref: paths/v22/user/bodyvalues.yaml
+  /v22/user/bodyvalues/{id}:
+    $ref: paths/v22/user/bodyvalues/{id}.yaml
+  /v22/user/streak:
+    $ref: paths/v22/user/streak.yaml
+  /v22/user/shop/items:
+    $ref: paths/v22/user/shop/items.yaml
+  /v22/user/insight/daily-tips:
+    $ref: paths/v22/user/insight/daily-tips.yaml
+  /v22/user/third-party-integration:
+    $ref: paths/v22/user/third-party-integration.yaml
+  /v22/oauth/token:
+    $ref: paths/v22/oauth/token.yaml
+  /content/v2/recipes/{country_code}:
+    $ref: paths/content/v2/recipes/{country_code}.yaml
+  /v22/user/favorites/recipe:
+    $ref: paths/v22/user/favorites/recipe.yaml
+  /v22/user/settings:
+    $ref: paths/v22/user/settings.yaml
+  /v22/user/crm/initialize:
+    $ref: paths/v22/user/crm/initialize.yaml
+  /content/v2/success-stories:
+    $ref: paths/content/v2/success-stories.yaml
+  /v22/user/key-value-store:
+    $ref: paths/v22/user/key-value-store.yaml
+  /v22/user/dietary-preferences:
+    $ref: paths/v22/user/dietary-preferences.yaml
+  /v22/user/unlocked-features:
+    $ref: paths/v22/user/unlocked-features.yaml
+x-path-templates: []

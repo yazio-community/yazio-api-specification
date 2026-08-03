@@ -1,0 +1,16 @@
+# Never captured; confirmed against the live API, which answers 404 "Entity
+# with this ID does not exist" for an unknown id and 405 on /v22/recipes/{id}.
+delete:
+  tags:
+    - Recipes
+  summary: DELETE recipes by id
+  responses:
+    '204':
+      description: Removed
+      content: {}
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string

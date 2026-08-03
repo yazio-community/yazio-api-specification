@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Content
+  summary: GET recipes by country_code
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../../components/schemas/RecipeIndexEntry.yaml
+  parameters:
+    - name: country_code
+      in: path
+      required: true
+      schema:
+        type: string

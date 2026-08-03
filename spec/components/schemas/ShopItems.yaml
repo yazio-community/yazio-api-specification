@@ -1,0 +1,13 @@
+type: object
+properties:
+  items:
+    type: array
+    items:
+      type: object
+      properties:
+        shop_item_type:
+          type: string
+        currency_type:
+          type: string
+        currency_quantity:
+          type: number

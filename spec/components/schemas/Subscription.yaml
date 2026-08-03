@@ -1,0 +1,19 @@
+type: object
+properties:
+  start:
+    type: string
+  end:
+    type: string
+  gateway:
+    type: string
+  type:
+    type: string
+  status:
+    type: string
+  payment_provider_transaction_id:
+    type: string
+  last_status_change_at:
+    type: string
+  base_plan_id:
+    type: object
+    nullable: true

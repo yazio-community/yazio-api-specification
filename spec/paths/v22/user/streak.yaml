@@ -1,0 +1,11 @@
+get:
+  tags:
+    - Streaks
+  summary: GET streak
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/StreakCalendar.yaml

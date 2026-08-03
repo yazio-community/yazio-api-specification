@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Activity
+  summary: GET summary-daily
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../../components/schemas/DailyExerciseSummary.yaml
+  parameters:
+    - name: start
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: end
+      in: query
+      required: false
+      schema:
+        type: string

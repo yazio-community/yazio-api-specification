@@ -1,0 +1,11 @@
+post:
+  tags:
+    - User
+  summary: POST flush
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/PendingNotifications.yaml

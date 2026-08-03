@@ -1,0 +1,10 @@
+type: object
+properties:
+  date:
+    type: string
+  duration:
+    type: number
+  steps:
+    type: number
+  energy:
+    type: number

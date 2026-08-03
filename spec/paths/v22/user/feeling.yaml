@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Diary
+  summary: GET feeling
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/Feeling.yaml
+  parameters:
+    - name: date
+      in: query
+      required: false
+      schema:
+        type: string

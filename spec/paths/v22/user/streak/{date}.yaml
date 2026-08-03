@@ -1,0 +1,19 @@
+post:
+  tags:
+    - Streaks
+  summary: POST streak by date
+  responses:
+    '200':
+      description: OK
+      content: {}
+  parameters:
+    - name: date
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/StreakUpdate.yaml

@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+  date:
+    type: string
+  daytime:
+    type: string
+  type:
+    type: string
+  recipe_id:
+    type: string
+  portion_count:
+    type: number

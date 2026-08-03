@@ -1,0 +1,51 @@
+# Ruleset for `make lint` and the release workflow, which are the same check.
+# There is no PR-time CI, so this is the only automated gate on the spec.
+#
+# Must be named redocly.yaml, not .redocly.yaml — the CLI silently falls back to
+# its built-in recommended ruleset if it cannot find this file, and the only
+# sign is a "No configurations were provided" line in the output.
+#
+# The checks that matter are structural: does it parse, do the $refs across
+# spec/ resolve, are the paths unambiguous. The rules below are off because the
+# spec was originally inferred from captured traffic and much of it still is;
+# each says why. Now that the tree is hand-maintained, turning one back on is a
+# reasonable thing to do — it just means filling in what it asks for.
+
+# The root of the split tree. `redocly lint yazio` and `redocly bundle yazio`
+# both resolve through this alias, so nothing has to repeat the path.
+apis:
+  yazio:
+    root: spec/openapi.yaml
+
+extends:
+  - recommended
+
+rules:
+  # The token exchange is itself one of the captured endpoints, and bearer auth
+  # is described in the README. Declaring a securityScheme would mean asserting
+  # a scope model we have not actually observed.
+  security-defined: off
+
+  # No operationIds anywhere: the Python generator derives its function names
+  # from method + path instead, which is what the SDKs already ship. Adding
+  # them now would rename every generated function.
+  operation-operationId: off
+
+  # Only the responses the app actually provoked are described. Inventing 4xx
+  # entries would document shapes nobody has seen.
+  operation-4xx-response: off
+
+  # Summaries are still the generated ones ("GET user"). Now that the tree is
+  # hand-maintained there is nothing stopping better ones being written, and
+  # turning this to `error` is the way to force that — it is off only because
+  # ~60 operations would fail at once today.
+  operation-summary: off
+  tag-description: error
+
+  # Structural checks — these are the point of running the linter at all.
+  no-unresolved-refs: error
+  no-identical-paths: error
+  no-ambiguous-paths: error
+  path-parameters-defined: error
+  no-invalid-parameter-examples: error
+  spec-strict-refs: error

@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Activity
+  summary: GET exercises
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/ExerciseLog.yaml
+  parameters:
+    - name: date
+      in: query
+      required: false
+      schema:
+        type: string
+post:
+  tags:
+    - Activity
+  summary: POST exercises
+  responses:
+    '200':
+      description: OK
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/ExerciseEntry.yaml

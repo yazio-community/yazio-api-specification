@@ -1,0 +1,23 @@
+type: object
+properties:
+  key:
+    type: string
+  fasting_periods:
+    type: array
+    items:
+      type: object
+      properties:
+        start:
+          $ref: ./FastingPeriodBoundary.yaml
+        end:
+          $ref: ./FastingPeriodBoundary.yaml
+  fasting_days:
+    type: array
+    items: {}
+  preset:
+    type: object
+    nullable: true
+  fasting_tips:
+    type: array
+    items:
+      $ref: ./FastingTip.yaml

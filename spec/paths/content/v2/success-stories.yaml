@@ -1,0 +1,28 @@
+get:
+  tags:
+    - Content
+  summary: GET success-stories
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {}
+  parameters:
+    - name: locale
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: sex
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: goal
+      in: query
+      required: false
+      schema:
+        type: string

@@ -1,0 +1,7 @@
+type: object
+properties:
+  required_actions:
+    type: array
+    items: {}
+  active_gateway:
+    type: string

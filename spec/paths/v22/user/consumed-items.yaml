@@ -1,0 +1,44 @@
+get:
+  tags:
+    - Diary
+  summary: GET consumed-items
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/ConsumedItems.yaml
+  parameters:
+    - name: date
+      in: query
+      required: false
+      schema:
+        type: string
+post:
+  tags:
+    - Diary
+  summary: POST consumed-items
+  responses:
+    '204':
+      description: Written
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/ConsumedItems.yaml
+# Never captured; confirmed against the live API.
+delete:
+  tags:
+    - Diary
+  summary: DELETE consumed-items
+  responses:
+    '204':
+      description: Removed
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/ConsumedItemsDeletion.yaml

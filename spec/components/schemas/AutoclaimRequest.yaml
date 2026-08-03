@@ -1,0 +1,6 @@
+type: object
+properties:
+  user_date:
+    type: string
+  type:
+    type: string

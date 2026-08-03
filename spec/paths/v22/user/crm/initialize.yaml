@@ -1,0 +1,8 @@
+post:
+  tags:
+    - User
+  summary: POST initialize
+  responses:
+    '200':
+      description: OK
+      content: {}

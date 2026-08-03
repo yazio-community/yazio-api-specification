@@ -1,0 +1,19 @@
+get:
+  tags:
+    - Body Values
+  summary: GET last
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../../components/schemas/WeightEntry.yaml
+  parameters:
+    # Mandatory: a blank date answers 400. "last" means the latest entry on
+    # or before this day.
+    - name: date
+      in: query
+      required: true
+      schema:
+        type: string

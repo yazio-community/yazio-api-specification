@@ -1,0 +1,28 @@
+type: object
+properties:
+  username:
+    type: string
+    description: The account's email address.
+  password:
+    type: string
+  grant_type:
+    type: string
+    description: >-
+      `password` to exchange credentials for a token, `refresh_token` to renew
+      one.
+    example: password
+  # The OAuth client credentials the YAZIO mobile app ships with, read back out
+  # of a capture. They identify the *app*, not the user — every install sends
+  # the same pair — so they are not a secret, and every consumer needs them.
+  client_id:
+    type: string
+    description: >-
+      The client id the mobile app ships with. Identifies the app rather than
+      the user; every install sends the same value.
+    example: 3_5rbw4kehpugw8ogsc8ck8oo4ogswgckcskc04gcg8kk8k48ssw
+  client_secret:
+    type: string
+    description: >-
+      The client secret the mobile app ships with. Not a per-user secret; see
+      `client_id`.
+    example: 25gdtt1hvdi8gwowoww4oo88sgsw0oo04o0og0kkgwwks8k0k

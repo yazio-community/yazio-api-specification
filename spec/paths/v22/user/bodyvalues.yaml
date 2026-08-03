@@ -1,0 +1,28 @@
+post:
+  tags:
+    - Body Values
+  summary: POST bodyvalues
+  responses:
+    '200':
+      description: OK
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/BodyValueEntry.yaml
+delete:
+  tags:
+    - Body Values
+  summary: DELETE bodyvalues
+  responses:
+    '200':
+      description: OK
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: string

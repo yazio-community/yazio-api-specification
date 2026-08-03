@@ -1,0 +1,11 @@
+get:
+  tags:
+    - User
+  summary: GET settings
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/UserSettings.yaml

@@ -1,0 +1,50 @@
+type: object
+properties:
+  user_uuid:
+    type: string
+  name:
+    type: string
+  energy_goal:
+    type: number
+  protein_goal:
+    type: number
+  carb_goal:
+    type: number
+  fat_goal:
+    type: number
+  consumed_energy:
+    type: number
+  consumed_protein:
+    type: number
+  consumed_carb:
+    type: number
+  consumed_fat:
+    type: number
+  water_intake_goal:
+    type: number
+  goal:
+    type: string
+  start_weight:
+    type: number
+  weight_goal:
+    type: number
+  weight:
+    type: number
+  date_of_birth:
+    type: string
+  favorite_recipes:
+    type: array
+    items:
+      type: string
+  exercises:
+    type: array
+    items:
+      $ref: ./BuddyExercise.yaml
+  sex:
+    type: string
+  weight_change_per_week:
+    type: number
+  consume_activity_calories:
+    type: boolean
+  streak:
+    $ref: ./StreakCalendar.yaml

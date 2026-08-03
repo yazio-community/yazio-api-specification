@@ -1,0 +1,24 @@
+type: object
+properties:
+  training:
+    type: array
+    items: {}
+  custom_training:
+    type: array
+    items: {}
+  activity:
+    type: object
+    properties:
+      energy:
+        type: number
+      distance:
+        type: number
+      duration:
+        type: number
+      source:
+        type: object
+        nullable: true
+      gateway:
+        type: string
+      steps:
+        type: number

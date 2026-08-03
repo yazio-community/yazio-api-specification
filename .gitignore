@@ -1,0 +1,43 @@
+# mitmproxy captures — these contain OAuth tokens, account data and personal
+# health data from live sessions. Never commit them; rebuild the spec from your
+# own capture with `make build` instead.
+*.flows
+*.har
+*.dump
+
+# mitmproxy state
+.mitmproxy/
+*.pem
+*.p12
+*.cer
+
+# Live YAZIO account credentials. Nothing in the repo reads these any more, but
+# poking at the API by hand is the normal way to check a shape, and a stray
+# .env is the easiest way to leak an account. Never commit.
+.env
+
+# Bundled spec. Composed from spec/ by `make bundle`, attached to releases as
+# openapi.yaml. Never edited by hand, so never committed — spec/ is the source.
+dist/
+
+# Nix
+result
+result-*
+.direnv/
+.envrc.local
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+
+# Editors and OS
+.idea/
+.vscode/
+.zed/
+*.swp
+.DS_Store
+
+.claude/settings.local.json

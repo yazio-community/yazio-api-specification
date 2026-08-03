@@ -1,0 +1,16 @@
+type: object
+properties:
+  energy.energy:
+    type: number
+  water:
+    type: number
+  activity.step:
+    type: number
+  nutrient.protein:
+    type: number
+  nutrient.fat:
+    type: number
+  nutrient.carb:
+    type: number
+  bodyvalue.weight:
+    type: number

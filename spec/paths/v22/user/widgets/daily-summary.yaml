@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Widgets
+  summary: GET daily-summary
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../../components/schemas/DailySummaryWidget.yaml
+  parameters:
+    - name: date
+      in: query
+      required: false
+      schema:
+        type: string

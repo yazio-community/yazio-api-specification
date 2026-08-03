@@ -1,0 +1,27 @@
+type: object
+properties:
+  request_uuid:
+    type: string
+  device_uuid:
+    type: string
+  app_version:
+    type: string
+  platform:
+    type: string
+  session_id:
+    type: string
+  delivery_mode:
+    type: string
+  experiments:
+    type: array
+    items:
+      type: object
+      properties:
+        variant:
+          type: string
+        experiment:
+          type: string
+  requested_at:
+    type: number
+  language:
+    type: string

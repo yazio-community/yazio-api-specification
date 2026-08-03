@@ -1,0 +1,48 @@
+type: object
+properties:
+  activity_energy:
+    type: number
+  consume_activity_energy:
+    type: boolean
+  steps:
+    type: number
+  water_intake:
+    type: number
+  goals:
+    $ref: ./DailyGoals.yaml
+  units:
+    type: object
+    properties:
+      unit_mass:
+        type: string
+      unit_energy:
+        type: string
+      unit_serving:
+        type: string
+      unit_length:
+        type: string
+  meals:
+    type: object
+    properties:
+      breakfast:
+        $ref: ./MealSummary.yaml
+      lunch:
+        $ref: ./MealSummary.yaml
+      dinner:
+        $ref: ./MealSummary.yaml
+      snack:
+        $ref: ./MealSummary.yaml
+  user:
+    type: object
+    properties:
+      start_weight:
+        type: number
+      current_weight:
+        type: number
+      goal:
+        type: string
+      sex:
+        type: string
+  active_fasting_countdown_template_key:
+    type: object
+    nullable: true

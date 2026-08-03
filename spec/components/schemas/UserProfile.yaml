@@ -1,0 +1,82 @@
+type: object
+properties:
+  first_name:
+    type: string
+  last_name:
+    type: object
+    nullable: true
+  sex:
+    type: string
+  city:
+    type: object
+    nullable: true
+  country:
+    type: string
+  language:
+    type: string
+  timezone_offset:
+    type: number
+  food_database_country:
+    type: string
+  goal:
+    type: string
+  activity_degree:
+    type: string
+  weight_change_per_week:
+    type: number
+  unit_length:
+    type: string
+  unit_mass:
+    type: string
+  unit_energy:
+    type: string
+  unit_glucose:
+    type: string
+  unit_serving:
+    type: string
+  stripe_customer_id:
+    type: string
+  diet:
+    type: object
+    properties:
+      name:
+        type: string
+      carb_percentage:
+        type: number
+      fat_percentage:
+        type: number
+      protein_percentage:
+        type: number
+  registration_date:
+    type: string
+  reset_date:
+    type: string
+  profile_image:
+    type: object
+    nullable: true
+  user_token:
+    type: string
+  email_confirmation_status:
+    type: string
+  newsletter_opt_in:
+    type: boolean
+  login_type:
+    type: string
+  siwa_user_id:
+    type: object
+    nullable: true
+  premium_type:
+    type: string
+  start_weight:
+    type: number
+  uuid:
+    type: string
+  body_height:
+    type: number
+  date_of_birth:
+    type: string
+  email:
+    type: string
+  tags:
+    type: array
+    items: {}

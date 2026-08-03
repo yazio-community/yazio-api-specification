@@ -1,0 +1,13 @@
+description: >-
+  Body of DELETE /v22/user/consumed-items. Each property names one entry by id,
+  as a single string rather than a list — passing an array is rejected with
+  "This value should be of type string". Note that the endpoint also accepts an
+  `?id=` query parameter, answers 204, and does nothing at all.
+type: object
+properties:
+  products:
+    type: string
+  recipe_portions:
+    type: string
+  simple_products:
+    type: string

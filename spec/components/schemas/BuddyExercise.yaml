@@ -1,0 +1,6 @@
+type: object
+properties:
+  steps:
+    type: number
+  calories:
+    type: number

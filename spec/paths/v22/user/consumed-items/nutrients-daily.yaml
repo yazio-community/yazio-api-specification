@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Diary
+  summary: GET nutrients-daily
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../../components/schemas/DailyNutrients.yaml
+  parameters:
+    - name: end
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: start
+      in: query
+      required: false
+      schema:
+        type: string

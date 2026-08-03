@@ -1,0 +1,38 @@
+type: object
+properties:
+  group_name:
+    type: string
+  participants:
+    $ref: ./FastingParticipants.yaml
+  cycle_duration_in_days:
+    type: number
+  emoji:
+    type: string
+  title:
+    type: string
+  subtitle:
+    type: string
+  teaser:
+    type: string
+  goals:
+    type: array
+    items:
+      type: string
+  flexibility:
+    type: string
+  difficulty:
+    type: string
+  fasting_calorie_goal:
+    type: object
+    nullable: true
+  free:
+    type: boolean
+  type:
+    type: string
+  teaser_position:
+    type: object
+    nullable: true
+  templates:
+    type: array
+    items:
+      $ref: ./FastingTemplate.yaml

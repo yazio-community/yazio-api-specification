@@ -1,0 +1,8 @@
+type: object
+properties:
+  exercises:
+    type: number
+  body_values:
+    type: number
+  consumed_items:
+    type: number

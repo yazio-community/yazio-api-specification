@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Products
+  summary: GET products by id
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/Product.yaml
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+options:
+  tags:
+    - Products
+  summary: OPTIONS products by id
+  responses:
+    '200':
+      description: OK
+      content: {}
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string

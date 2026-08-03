@@ -1,0 +1,10 @@
+type: object
+properties:
+  water_intake:
+    type: number
+  gateway:
+    type: object
+    nullable: true
+  source:
+    type: object
+    nullable: true

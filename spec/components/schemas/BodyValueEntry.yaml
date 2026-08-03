@@ -1,0 +1,13 @@
+type: object
+properties:
+  weight:
+    type: array
+    items:
+      type: object
+      properties:
+        value:
+          type: number
+        date:
+          type: string
+        id:
+          type: string

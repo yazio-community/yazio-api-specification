@@ -1,0 +1,8 @@
+type: object
+properties:
+  initial_number_of_participants:
+    type: number
+  growth_per_year:
+    type: number
+  growth_start:
+    type: string

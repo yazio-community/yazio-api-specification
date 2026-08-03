@@ -1,0 +1,12 @@
+get:
+  tags:
+    - Fasting
+  summary: GET history
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items: {}

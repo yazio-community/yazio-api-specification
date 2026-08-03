@@ -1,0 +1,10 @@
+type: object
+properties:
+  access_token:
+    type: string
+  expires_in:
+    type: number
+  refresh_token:
+    type: string
+  token_type:
+    type: string

@@ -1,0 +1,19 @@
+put:
+  tags:
+    - Body Values
+  summary: PUT bodyvalues by id
+  responses:
+    '200':
+      description: OK
+      content: {}
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/BodyValueUpdate.yaml

@@ -1,0 +1,8 @@
+type: object
+properties:
+  note:
+    type: object
+    nullable: true
+  tags:
+    type: array
+    items: {}

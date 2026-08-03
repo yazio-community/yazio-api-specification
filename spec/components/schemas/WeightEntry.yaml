@@ -1,0 +1,16 @@
+type: object
+properties:
+  date:
+    type: string
+  id:
+    type: string
+  value:
+    type: number
+  external_id:
+    type: object
+    nullable: true
+  gateway:
+    type: string
+  source:
+    type: object
+    nullable: true

@@ -1,0 +1,49 @@
+description: >-
+  Response of GET /v22/products/{id}. Absent from the capture, which only
+  recorded an OPTIONS preflight; filled in from a live response. Note that the
+  body carries no id of its own.
+type: object
+properties:
+  name:
+    type: string
+  producer:
+    type: string
+    nullable: true
+  category:
+    type: string
+  base_unit:
+    type: string
+  is_verified:
+    type: boolean
+  is_private:
+    type: boolean
+  is_deleted:
+    type: boolean
+  has_ean:
+    type: boolean
+  # Per *one* base unit, not per 100 — olive oil reads 8.84 kcal/g.
+  nutrients:
+    type: object
+    additionalProperties:
+      type: number
+  servings:
+    type: array
+    items:
+      type: object
+      properties:
+        serving:
+          type: string
+        amount:
+          type: number
+  eans:
+    type: array
+    items:
+      type: string
+  language:
+    type: string
+  countries:
+    type: array
+    items:
+      type: string
+  updated_at:
+    type: string

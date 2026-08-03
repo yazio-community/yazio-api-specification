@@ -1,0 +1,118 @@
+name: release
+
+# Tagging here is the only event that moves a spec change downstream. The SDK
+# repos never read this repo's main branch, so an in-progress spec edit cannot
+# leak into a published SDK — only a tag can.
+#
+# This is also the only CI in the repo: there is no PR-time check. A broken
+# $ref fails the lint step below, so at worst it costs you a tag. A spec that
+# lints but does not generate is not checked anywhere and will surface in the
+# SDK repos after the dispatch. Run `nix-shell --run "make lint"` before
+# tagging.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      # The tag and the version are different strings and both are needed
+      # downstream: the tag builds the release download URL, the version is what
+      # the SDK publishes under. Derived once here so no consumer has to guess
+      # which one it was handed.
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install "ruamel.yaml"
+
+      - name: Derive and check the version
+        id: version
+        # The `v` on the tag is a git convention only — it never reaches a
+        # package manager. It is stripped exactly once, here, and every later
+        # step and every downstream repo uses the result rather than re-deriving
+        # it. Packagist and setuptools_scm strip a leading `v` themselves, npm
+        # adds one to its own tags, and Go module tags require it; nothing
+        # objects to it being present on the tag.
+        #
+        # The SDKs publish under this exact version, so a string PyPI would
+        # reject has to fail here rather than in three repos downstream.
+        # Accepts MAJOR.MINOR.PATCH plus an optional .postN, which is how an
+        # SDK-only rebuild (generator upgrade, no spec change) gets a version to
+        # ship under without inventing a spec release.
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          if ! [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(\.post[0-9]+)?$ ]]; then
+            echo "::error::tag '$GITHUB_REF_NAME' is not vMAJOR.MINOR.PATCH[.postN]"
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "releasing $version from tag $GITHUB_REF_NAME"
+
+      - name: Compose spec/ into a single document
+        # The release artifact is one self-contained file, so a consumer can
+        # hand it to a generator without cloning the repo. No --dereferenced:
+        # that inlines every $ref and dissolves components/schemas, and the
+        # generated model names come from those keys.
+        run: |
+          mkdir -p dist
+          npx --yes @redocly/cli@latest bundle spec/openapi.yaml -o dist/openapi.yaml
+
+      - name: Stamp the bundle with the release version
+        # spec/openapi.yaml carries info.version 0.0.0-dev between releases, so
+        # the artifact has to say which tag produced it. Only info.version
+        # changes; everything else is byte-identical to a local `make bundle`.
+        run: |
+          python3 scripts/stamp_version.py dist/openapi.yaml \
+            --version "${{ steps.version.outputs.version }}"
+          head -5 dist/openapi.yaml
+
+      - name: Lint before publishing
+        run: npx --yes @redocly/cli@latest lint dist/openapi.yaml
+
+      - name: Create the GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/openapi.yaml
+          generate_release_notes: true
+
+  dispatch:
+    # Each SDK repo regenerates itself from the release we just published.
+    # Adding a language means adding a line here and a regenerate workflow over
+    # there. Two values go across:
+    #
+    #   spec_version  1.4.2    what the SDK publishes under; matches info.version
+    #   spec_tag      v1.4.2   builds the asset URL, .../download/v1.4.2/openapi.yaml
+    #
+    # Passing both is deliberate. The SDK must not derive one from the other —
+    # that is where a stray `v` ends up in a published package version.
+    needs: release
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - yazio-community/yazio-sdk-python
+    steps:
+      - name: Tell ${{ matrix.repo }} to regenerate
+        env:
+          # A fine-grained PAT with "Contents: read and write" on the SDK repos.
+          # The default GITHUB_TOKEN cannot dispatch to another repository.
+          GH_TOKEN: ${{ secrets.SDK_DISPATCH_TOKEN }}
+        run: |
+          gh api "repos/${{ matrix.repo }}/dispatches" \
+            --method POST \
+            --field event_type=spec-released \
+            --field "client_payload[spec_version]=${{ needs.release.outputs.version }}" \
+            --field "client_payload[spec_tag]=${GITHUB_REF_NAME}"

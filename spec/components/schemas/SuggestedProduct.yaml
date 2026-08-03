@@ -1,0 +1,10 @@
+type: object
+properties:
+  product_id:
+    type: string
+  amount:
+    type: number
+  serving:
+    type: string
+  serving_quantity:
+    type: number

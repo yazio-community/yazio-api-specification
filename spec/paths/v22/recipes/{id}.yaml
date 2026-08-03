@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Recipes
+  summary: GET recipes by id
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/Recipe.yaml
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string

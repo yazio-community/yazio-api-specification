@@ -1,0 +1,13 @@
+post:
+  tags:
+    - Rewards & Shop
+  summary: POST autoclaim
+  responses:
+    '200':
+      description: OK
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/AutoclaimRequest.yaml

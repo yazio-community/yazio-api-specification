@@ -1,0 +1,16 @@
+post:
+  tags:
+    - Authentication
+  summary: POST token
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/OAuthToken.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/OAuthTokenRequest.yaml

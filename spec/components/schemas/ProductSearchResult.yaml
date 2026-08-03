@@ -1,0 +1,28 @@
+type: object
+properties:
+  score:
+    type: number
+  name:
+    type: string
+  product_id:
+    type: string
+  serving:
+    type: string
+  serving_quantity:
+    type: number
+  amount:
+    type: number
+  base_unit:
+    type: string
+  producer:
+    type: string
+  is_verified:
+    type: boolean
+  nutrients:
+    $ref: ./NutrientSummary.yaml
+  countries:
+    type: array
+    items:
+      type: string
+  language:
+    type: string

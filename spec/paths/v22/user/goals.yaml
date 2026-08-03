@@ -1,0 +1,17 @@
+get:
+  tags:
+    - Goals
+  summary: GET goals
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/schemas/DailyGoals.yaml
+  parameters:
+    - name: date
+      in: query
+      required: false
+      schema:
+        type: string

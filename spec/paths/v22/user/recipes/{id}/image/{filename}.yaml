@@ -1,0 +1,32 @@
+post:
+  tags:
+  - Recipes
+  operationId: addUserRecipeImage
+  summary: Add a photo to a recipe
+  description: The app generates `filename` itself as a random id plus the
+    original extension, e.g. `a14296b1-5c4b-4201-a6f8-15746c5c9d54.jpg` — it is
+    not returned or read back from anywhere, so any value works.
+  responses:
+    '204':
+      description: Uploaded
+      content: {}
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
+  - name: filename
+    in: path
+    required: true
+    schema:
+      type: string
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            image:
+              type: string
+              format: binary

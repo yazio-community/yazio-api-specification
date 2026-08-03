@@ -34,6 +34,19 @@ def main() -> int:
 
     yaml = YAML()
     yaml.preserve_quotes = True
+    # Match how `redocly bundle` writes sequences:
+    #
+    #     servers:
+    #       - url: https://yzapi.yazio.com
+    #
+    # ruamel's default puts the dash in the parent's column instead, which
+    # rewrites every list in the document — 534 lines for a one-word change.
+    # That noise lands in the release asset and then in every SDK repo that
+    # commits it, burying the actual diff.
+    yaml.indent(mapping=2, sequence=4, offset=2)
+    # The bundle has lines longer than ruamel's default wrap, and rewrapping
+    # them is the same kind of spurious diff.
+    yaml.width = 4096
     spec = yaml.load(args.file)
 
     if "info" not in spec:

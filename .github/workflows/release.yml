@@ -72,8 +72,11 @@ jobs:
 
       - name: Stamp the bundle with the release version
         # spec/openapi.yaml carries info.version 0.0.0-dev between releases, so
-        # the artifact has to say which tag produced it. Only info.version
-        # changes; everything else is byte-identical to a local `make bundle`.
+        # the artifact has to say which tag produced it. Exactly one line
+        # differs from a local `make bundle` — the script matches redocly's
+        # indentation deliberately, because anything else rewrites every list
+        # in the document and buries the real diff in the SDK repos that commit
+        # this asset.
         run: |
           python3 scripts/stamp_version.py dist/openapi.yaml \
             --version "${{ steps.version.outputs.version }}"

@@ -15,3 +15,23 @@ delete:
     required: true
     schema:
       type: string
+put:
+  tags:
+  - Recipes
+  operationId: updateUserRecipe
+  summary: Update one of the user's recipes
+  responses:
+    '204':
+      description: Updated
+      content: {}
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/RecipeDraft.yaml

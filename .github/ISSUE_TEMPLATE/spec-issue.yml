@@ -1,0 +1,65 @@
+name: Spec issue
+description: An endpoint is already documented, but something about it is wrong or misleading — schema, description, or example.
+title: "[Spec Issue]: "
+labels:
+  - spec-issue
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for an endpoint that's already in `spec/` but is documented incorrectly —
+        a wrong or missing field, a wrong type, a misleading description, a stale example,
+        or a route that no longer exists on the live API.
+        If the endpoint isn't in the spec at all yet, use the "New Endpoint" template instead.
+        This also includes routes which exist, but have an undocumented method.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL / path
+      description: The route as it appears in the spec, written as a template (e.g. `/v22/user/products/{id}`).
+      placeholder: /v22/user/products/{id}
+    validations:
+      required: true
+
+  - type: dropdown
+    id: method
+    attributes:
+      label: Method
+      options:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What the spec currently says vs. what you observed on the live API (or in the docs/description text) and what you did in the app to achieve this behaviour.
+    validations:
+      required: true
+
+  - type: textarea
+    id: request-body
+    attributes:
+      label: Example request body (optional)
+      description: >
+        Redact tokens, emails, and any personal health data before pasting. Write
+        examples by hand with made-up values where possible rather than pasting a
+        real request.
+      render: json
+
+  - type: textarea
+    id: response-body
+    attributes:
+      label: Example response body (optional)
+      description: >
+        Redact tokens, emails, and any personal health data before pasting. Write
+        examples by hand with made-up values where possible rather than pasting a
+        real request.
+      render: json

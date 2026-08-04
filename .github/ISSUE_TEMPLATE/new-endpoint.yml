@@ -1,0 +1,62 @@
+name: New endpoint
+description: An endpoint exists in the live API but is missing from the spec.
+title: "[New Endpoint]: "
+labels:
+  - new-endpoint
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a route the app calls that `spec/` doesn't document at all.
+        If the endpoint already exists in the spec but its schema or description is wrong, use the "Spec issue" template instead.
+
+  - type: input
+    id: url
+    attributes:
+      label: URL / path
+      description: The route as called by the app, written as a template (e.g. `/v22/user/products/{id}`, not with a concrete id).
+      placeholder: /v22/user/products/{id}
+    validations:
+      required: true
+
+  - type: dropdown
+    id: method
+    attributes:
+      label: Method
+      options:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What this endpoint does, and how you found it (capture vs. calling it manually) and where to find it in the app.
+    validations:
+      required: true
+
+  - type: textarea
+    id: request-body
+    attributes:
+      label: Example request body (optional)
+      description: >
+        Redact tokens, emails, and any personal health data before pasting. Write
+        examples by hand with made-up values where possible rather than pasting a
+        real request.
+      render: json
+
+  - type: textarea
+    id: response-body
+    attributes:
+      label: Example response body (optional)
+      description: >
+        Redact tokens, emails, and any personal health data before pasting. Write
+        examples by hand with made-up values where possible rather than pasting a
+        real response.
+      render: json

@@ -2,7 +2,7 @@ name: Spec issue
 description: An endpoint is already documented, but something about it is wrong or misleading — schema, description, or example.
 title: "[Spec Issue]: "
 labels:
-  - spec-issue
+  - documentation
 body:
   - type: markdown
     attributes:

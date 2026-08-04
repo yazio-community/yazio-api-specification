@@ -2,7 +2,7 @@ name: New endpoint
 description: An endpoint exists in the live API but is missing from the spec.
 title: "[New Endpoint]: "
 labels:
-  - new-endpoint
+  - enhancement
 body:
   - type: markdown
     attributes:

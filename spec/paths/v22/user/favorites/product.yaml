@@ -1,0 +1,14 @@
+get:
+  tags:
+  - Products
+  operationId: listFavoriteProducts
+  summary: Products the user favourited
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../../../components/schemas/FavoriteProduct.yaml

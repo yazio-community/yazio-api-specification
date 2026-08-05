@@ -1,0 +1,14 @@
+get:
+  tags:
+  - Products
+  operationId: listUserProducts
+  summary: Products the user created
+  responses:
+    '200':
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string

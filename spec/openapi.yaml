@@ -129,6 +129,8 @@ paths:
     $ref: paths/v22/user/products/suggested.yaml
   /v22/user/products:
     $ref: paths/v22/user/products.yaml
+  /v22/user/products/{id}:
+    $ref: paths/v22/user/products/{id}.yaml
   /v22/products/{id}:
     $ref: paths/v22/products/{id}.yaml
   /v22/user/recipes:

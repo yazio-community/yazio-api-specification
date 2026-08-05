@@ -1,0 +1,17 @@
+# The path parameter is the product_id of the favorited product, not the
+# favorite entry's own id.
+delete:
+  tags:
+  - Products
+  operationId: removeFavoriteProduct
+  summary: Unfavorite a product
+  responses:
+    '204':
+      description: Removed
+      content: {}
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

@@ -1,0 +1,19 @@
+# Captured for a recipe favorite: the id here is the favorite entry's own id
+# (the `id` sent in the PUT /v22/user/favorites/recipes body), not the
+# recipe_id. Contrast with DELETE /v22/user/favorites/product/{id}, which is
+# keyed by product_id instead — the two favorite kinds are removed differently.
+delete:
+  tags:
+  - Recipes
+  operationId: removeFavorite
+  summary: Unfavorite a recipe
+  responses:
+    '204':
+      description: Removed
+      content: {}
+  parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string

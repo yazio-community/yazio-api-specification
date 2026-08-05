@@ -1,0 +1,13 @@
+description: >-
+  A favorited recipe with the portion count the user favorited it at. Used as
+  the request body of PUT /v22/user/favorites/recipes; assumed to also be the
+  item shape of GET /v22/user/favorites/recipe by analogy with
+  FavoriteProduct.yaml, which was captured for both directions.
+type: object
+properties:
+  id:
+    type: string
+  recipe_id:
+    type: string
+  portion_count:
+    type: number

@@ -1,0 +1,14 @@
+put:
+  tags:
+  - Recipes
+  operationId: addFavoriteRecipe
+  summary: Favorite a recipe
+  responses:
+    '204':
+      description: Added
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/FavoriteRecipe.yaml

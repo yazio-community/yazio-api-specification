@@ -179,6 +179,8 @@ paths:
     $ref: paths/v22/user/favorites/product.yaml
   /v22/user/favorites/product/{id}:
     $ref: paths/v22/user/favorites/product/{id}.yaml
+  /v22/user/favorites/recipes:
+    $ref: paths/v22/user/favorites/recipes.yaml
   /v22/user/settings:
     $ref: paths/v22/user/settings.yaml
   /v22/user/crm/initialize:

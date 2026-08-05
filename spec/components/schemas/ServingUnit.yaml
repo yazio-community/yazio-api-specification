@@ -1,0 +1,21 @@
+description: >-
+  The fixed set of serving units offered when defining custom servings for a
+  user-created product via POST /v22/user/products. Distinct from the
+  free-form `serving` strings seen elsewhere (e.g. Product.yaml,
+  SuggestedProduct.yaml), which come from the product database and are not
+  limited to this list.
+type: string
+enum:
+  - bar
+  - bottle
+  - can
+  - cup
+  - each
+  - glass
+  - package
+  - piece
+  - portion
+  - slice
+  - tablespoon
+  - tablet
+  - teaspoon

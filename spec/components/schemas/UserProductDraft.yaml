@@ -1,0 +1,29 @@
+description: Request body of POST /v22/user/products.
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  category:
+    type: string
+  base_unit:
+    type: string
+  is_private:
+    type: boolean
+  producer:
+    type: string
+  # Per *one* base unit, not per 100 — matches Product.yaml.
+  nutrients:
+    type: object
+    additionalProperties:
+      type: number
+  servings:
+    type: array
+    items:
+      type: object
+      properties:
+        serving:
+          $ref: ServingUnit.yaml
+        amount:
+          type: number

@@ -1,3 +1,17 @@
+post:
+  tags:
+  - Products
+  operationId: createUserProduct
+  summary: Create a user product
+  responses:
+    '204':
+      description: Created
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/schemas/UserProductDraft.yaml
 get:
   tags:
   - Products

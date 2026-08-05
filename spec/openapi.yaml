@@ -173,6 +173,8 @@ paths:
     $ref: paths/content/v2/recipes/{country_code}.yaml
   /v22/user/favorites/recipe:
     $ref: paths/v22/user/favorites/recipe.yaml
+  /v22/user/favorites/products:
+    $ref: paths/v22/user/favorites/products.yaml
   /v22/user/settings:
     $ref: paths/v22/user/settings.yaml
   /v22/user/crm/initialize:

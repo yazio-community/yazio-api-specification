@@ -1,0 +1,14 @@
+put:
+  tags:
+  - Products
+  operationId: addFavoriteProduct
+  summary: Favorite a product
+  responses:
+    '204':
+      description: Added
+      content: {}
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../../components/schemas/FavoriteProduct.yaml

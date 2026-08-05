@@ -1,0 +1,16 @@
+description: >-
+  A favorited product with the serving the user favorited it at. Used both as
+  the request body of PUT /v22/user/favorites/products and as the item shape
+  of GET /v22/user/favorites/product.
+type: object
+properties:
+  id:
+    type: string
+  product_id:
+    type: string
+  amount:
+    type: number
+  serving_quantity:
+    type: number
+  serving:
+    type: string

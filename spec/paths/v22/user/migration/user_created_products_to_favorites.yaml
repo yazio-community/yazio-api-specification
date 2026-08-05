@@ -1,0 +1,9 @@
+post:
+  tags:
+  - Products
+  operationId: migrateUserCreatedProductsToFavorites
+  summary: Convert the user's created products into favorited products
+  responses:
+    '204':
+      description: Migrated
+      content: {}

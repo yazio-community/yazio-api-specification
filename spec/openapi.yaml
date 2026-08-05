@@ -183,6 +183,8 @@ paths:
     $ref: paths/v22/user/favorites/recipes.yaml
   /v22/user/favorites/{id}:
     $ref: paths/v22/user/favorites/{id}.yaml
+  /v22/user/migration/user_created_products_to_favorites:
+    $ref: paths/v22/user/migration/user_created_products_to_favorites.yaml
   /v22/user/settings:
     $ref: paths/v22/user/settings.yaml
   /v22/user/crm/initialize:

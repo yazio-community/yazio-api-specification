@@ -16,18 +16,3 @@ get:
     required: true
     schema:
       type: string
-options:
-  tags:
-  - Products
-  operationId: getProductOptions
-  summary: Allowed methods for a product resource
-  responses:
-    '200':
-      description: OK
-      content: {}
-  parameters:
-  - name: id
-    in: path
-    required: true
-    schema:
-      type: string

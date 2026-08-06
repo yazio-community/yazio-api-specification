@@ -10,4 +10,5 @@ get:
         application/json:
           schema:
             type: array
-            items: {}
+            items:
+              $ref: ../../../../components/schemas/FavoriteRecipe.yaml

@@ -1,8 +1,7 @@
 description: >-
-  A favorited recipe with the portion count the user favorited it at. Used as
-  the request body of PUT /v22/user/favorites/recipes; assumed to also be the
-  item shape of GET /v22/user/favorites/recipe by analogy with
-  FavoriteProduct.yaml, which was captured for both directions.
+  A favorited recipe with the portion count the user favorited it at. Used both
+  as the request body of PUT /v22/user/favorites/recipes and as the item shape
+  of GET /v22/user/favorites/recipe.
 type: object
 properties:
   id:
@@ -11,3 +10,10 @@ properties:
     type: string
   portion_count:
     type: number
+  yazio_id:
+    type: string
+    nullable: true
+    readOnly: true
+    description: >-
+      Present on GET /v22/user/favorites/recipe for YAZIO recipes; not sent
+      when favoriting. Null for user-created recipes.

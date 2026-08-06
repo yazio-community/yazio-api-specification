@@ -5,8 +5,8 @@
 delete:
   tags:
   - Recipes
-  operationId: removeFavorite
-  summary: Unfavorite a recipe
+  operationId: remove
+  summary: Remove a favorite
   responses:
     '204':
       description: Removed
